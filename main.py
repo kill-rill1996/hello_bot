@@ -27,7 +27,7 @@ async def command_start_handler(message: Message, bot: Bot) -> None:
     await message.answer(f"Hello, {html.bold(message.from_user.full_name)}!")
 
     # send message for admins
-    msg_for_admins = f"id: {tg_id} {'username @' + username if username else ''} ({first_name} {last_name})"
+    msg_for_admins = f"id: {tg_id}\n{'username: @' + username if username else ''} ({first_name} {last_name})"
     for tg_admin in settings.admins:
         try:
             await bot.send_message(tg_admin, msg_for_admins)
